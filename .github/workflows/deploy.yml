@@ -23,5 +23,6 @@ jobs:
             cd ~/vup-wildlife
             git pull origin main
             bun install
+            rm -rf .next
             bun run build
             pm2 restart nextjs-app
