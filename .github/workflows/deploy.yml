@@ -21,8 +21,8 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             cd ~/vup-wildlife
+            export PATH="$HOME/.bun/bin:$PATH"
             git pull origin main
             bun install
             rm -rf .next
-            bun run build
-            pm2 restart nextjs-app
+            bun run build && pm2 restart nextjs-app
